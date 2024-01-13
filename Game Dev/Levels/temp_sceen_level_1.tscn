@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cfcuqyrqw6idb"]
+
+[node name="TEMP_SCEEN_LEVEL_1" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TEMP_GAME_SCREEN"
