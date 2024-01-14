@@ -1,0 +1,203 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpq6ntor05dtn"]
+
+[ext_resource type="Texture2D" uid="uid://c05knp4b42ufq" path="res://icon.svg" id="1_65cmt"]
+[ext_resource type="Script" path="res://Menu/Settings/Keymaps/remapper.gd" id="2_6rupt"]
+[ext_resource type="Script" path="res://Menu/Settings/Keymaps/Control.gd" id="2_k2j4p"]
+[ext_resource type="Script" path="res://Menu/Settings/Keymaps/input_mapper.gd" id="2_la7ch"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jn3lc"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_br5hc"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_asc43"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rcwqf"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InputMapper" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_65cmt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_k2j4p")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/background/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/background/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Back to Settings" type="Button" parent="CanvasLayer/background/Control/MarginContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 1
+text = "Back"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/background/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="KeyMaps" type="Control" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_la7ch")
+
+[node name="up" type="Button" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 51.0
+offset_bottom = 35.0
+text = "up"
+script = ExtResource("2_6rupt")
+action = "up"
+
+[node name="Label" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/up"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -11.5
+offset_right = 47.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "up"
+label_settings = SubResource("LabelSettings_jn3lc")
+vertical_alignment = 3
+
+[node name="down" type="Button" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps"]
+layout_mode = 2
+offset_top = 39.0
+offset_right = 51.0
+offset_bottom = 70.0
+text = "down"
+script = ExtResource("2_6rupt")
+action = "down"
+
+[node name="Label" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/down"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -11.5
+offset_right = 47.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "down"
+label_settings = SubResource("LabelSettings_br5hc")
+vertical_alignment = 3
+
+[node name="left" type="Button" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps"]
+layout_mode = 2
+offset_top = 74.0
+offset_right = 51.0
+offset_bottom = 105.0
+text = "left"
+script = ExtResource("2_6rupt")
+action = "left"
+
+[node name="Label" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/left"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -11.5
+offset_right = 47.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "left"
+label_settings = SubResource("LabelSettings_asc43")
+vertical_alignment = 3
+
+[node name="right" type="Button" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps"]
+layout_mode = 2
+offset_top = 109.0
+offset_right = 51.0
+offset_bottom = 140.0
+text = "right"
+script = ExtResource("2_6rupt")
+action = "right"
+
+[node name="Label" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/right"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -11.5
+offset_right = 47.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "right"
+label_settings = SubResource("LabelSettings_rcwqf")
+vertical_alignment = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/background"]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 23.0
+scale = Vector2(6, 6)
+text = "Keyboard Controls"
+
+[connection signal="pressed" from="CanvasLayer/background/Control/MarginContainer/BoxContainer/Back to Settings" to="CanvasLayer/background/Control" method="_on_back_to_settings_pressed"]
