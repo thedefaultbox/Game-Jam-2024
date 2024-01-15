@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0jav6bwv5gqj"]
+[gd_scene load_steps=3 format=3 uid="uid://0jav6bwv5gqj"]
 
 [ext_resource type="Script" path="res://Menu/Settings/Settings.gd" id="1_l5n7j"]
+[ext_resource type="Script" path="res://global/Label.gd" id="2_3y7x0"]
 
 [node name="Settings_Menu" type="Control"]
 layout_mode = 3
@@ -18,44 +19,38 @@ size_flags_vertical = 3
 follow_viewport_enabled = true
 
 [node name="background" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Settings" type="Control" parent="CanvasLayer/background"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 940.0
-offset_top = 520.0
-offset_right = 940.0
-offset_bottom = 520.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l5n7j")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/background/Settings"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = -33.0
-offset_right = 66.0
-offset_bottom = 33.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/background/Settings/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/background/Settings/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Full Screen" type="CheckButton" parent="CanvasLayer/background/Settings/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -66,16 +61,24 @@ layout_mode = 2
 text = "Keyboard Controls
 "
 
-[node name="Back to menu" type="Button" parent="CanvasLayer/background/Settings/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/background/Settings/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Back to menu" type="Button" parent="CanvasLayer/background/Settings/MarginContainer/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
 text = "Back"
 
-[node name="Label" type="Label" parent="CanvasLayer/background"]
+[node name="debug menu" type="Label" parent="CanvasLayer/background"]
+visible = false
 layout_mode = 0
 offset_right = 56.0
 offset_bottom = 23.0
-text = "Setings"
+text = "Settings"
+script = ExtResource("2_3y7x0")
 
 [connection signal="toggled" from="CanvasLayer/background/Settings/MarginContainer/HBoxContainer/VBoxContainer/Full Screen" to="CanvasLayer/background/Settings" method="_on_full_screen_toggled"]
 [connection signal="pressed" from="CanvasLayer/background/Settings/MarginContainer/HBoxContainer/VBoxContainer/Keyboard Controls" to="CanvasLayer/background/Settings" method="_on_keyboard_controls_pressed"]
-[connection signal="pressed" from="CanvasLayer/background/Settings/MarginContainer/HBoxContainer/VBoxContainer/Back to menu" to="CanvasLayer/background/Settings" method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/background/Settings/MarginContainer/BoxContainer/Back to menu" to="CanvasLayer/background/Settings" method="_on_back_to_menu_pressed"]

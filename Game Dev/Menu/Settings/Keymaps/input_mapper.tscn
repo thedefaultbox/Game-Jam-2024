@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpq6ntor05dtn"]
 
+[ext_resource type="Script" path="res://global/Label.gd" id="1_7xfc3"]
 [ext_resource type="Texture2D" uid="uid://c05knp4b42ufq" path="res://icon.svg" id="1_65cmt"]
 [ext_resource type="Script" path="res://Menu/Settings/Keymaps/remapper.gd" id="2_6rupt"]
-[ext_resource type="Script" path="res://Menu/Settings/Keymaps/Control.gd" id="2_k2j4p"]
 [ext_resource type="Script" path="res://Menu/Settings/Keymaps/input_mapper.gd" id="2_la7ch"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jn3lc"]
@@ -48,7 +48,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_k2j4p")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/background/Control"]
 layout_mode = 1
@@ -94,7 +93,7 @@ text = "up"
 script = ExtResource("2_6rupt")
 action = "up"
 
-[node name="Label" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/up"]
+[node name="Label1" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/up"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = 6
@@ -121,7 +120,7 @@ text = "down"
 script = ExtResource("2_6rupt")
 action = "down"
 
-[node name="Label" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/down"]
+[node name="Label1" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/down"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = 6
@@ -148,7 +147,7 @@ text = "left"
 script = ExtResource("2_6rupt")
 action = "left"
 
-[node name="Label" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/left"]
+[node name="Label1" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/left"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = 6
@@ -175,7 +174,7 @@ text = "right"
 script = ExtResource("2_6rupt")
 action = "right"
 
-[node name="Label" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/right"]
+[node name="Label1" type="Label" parent="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps/right"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = 6
@@ -193,11 +192,13 @@ text = "right"
 label_settings = SubResource("LabelSettings_rcwqf")
 vertical_alignment = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/background"]
+[node name="debug menu" type="Label" parent="CanvasLayer/background"]
+visible = false
 layout_mode = 0
 offset_right = 144.0
 offset_bottom = 23.0
 scale = Vector2(6, 6)
 text = "Keyboard Controls"
+script = ExtResource("1_7xfc3")
 
-[connection signal="pressed" from="CanvasLayer/background/Control/MarginContainer/BoxContainer/Back to Settings" to="CanvasLayer/background/Control" method="_on_back_to_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/background/Control/MarginContainer/BoxContainer/Back to Settings" to="CanvasLayer/background/Control/MarginContainer/HBoxContainer/VBoxContainer/KeyMaps" method="_on_back_to_settings_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://do503v857w53m"]
+[gd_scene load_steps=4 format=3 uid="uid://do503v857w53m"]
 
 [ext_resource type="Texture2D" uid="uid://c05knp4b42ufq" path="res://icon.svg" id="1_joftn"]
 [ext_resource type="Script" path="res://Menu/Menu.gd" id="2_ex5rr"]
+[ext_resource type="Script" path="res://global/Label.gd" id="3_wrf1h"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -73,12 +74,14 @@ layout_mode = 2
 text = "Quit
 "
 
-[node name="Label" type="Label" parent="CanvasLayer/Background"]
+[node name="debug menu" type="Label" parent="CanvasLayer/Background"]
+visible = false
 layout_mode = 0
 offset_right = 88.0
 offset_bottom = 23.0
 scale = Vector2(4, 4)
 text = "Main Menu"
+script = ExtResource("3_wrf1h")
 
 [connection signal="pressed" from="CanvasLayer/Background/Menu/MarginContainer/HBoxContainer/VBoxContainer/Start" to="CanvasLayer/Background/Menu" method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Background/Menu/MarginContainer/HBoxContainer/VBoxContainer/Settings" to="CanvasLayer/Background/Menu" method="_on_setings_pressed"]

@@ -1,7 +1,10 @@
 extends Control
+#This Script allow the game to save and load the keybinds
+
 
 const keymaps_path = "user://keymaps.dat"
 var keymaps: Dictionary
+
 
 
 #Gets new keybinds/Load old keybinds
@@ -36,6 +39,7 @@ func save_keymap():
 	file.store_var(keymaps,true)
 	file.close()
 
-
-
+#Back to Settings Scene
+func _on_back_to_settings_pressed():
+	get_tree().change_scene_to_file("res://Menu/settings/settings_menu.tscn")
 
