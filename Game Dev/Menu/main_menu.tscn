@@ -84,7 +84,7 @@ text = "Main Menu"
 script = ExtResource("3_wrf1h")
 
 [connection signal="pressed" from="CanvasLayer/Background/Menu/MarginContainer/HBoxContainer/VBoxContainer/Start" to="CanvasLayer/Background/Menu" method="_on_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/Background/Menu/MarginContainer/HBoxContainer/VBoxContainer/Settings" to="CanvasLayer/Background/Menu" method="_on_setings_pressed"]
 [connection signal="pressed" from="CanvasLayer/Background/Menu/MarginContainer/HBoxContainer/VBoxContainer/Settings" to="CanvasLayer/Background/Menu" method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/Background/Menu/MarginContainer/HBoxContainer/VBoxContainer/Settings" to="CanvasLayer/Background/Menu" method="_on_setings_pressed"]
 [connection signal="pressed" from="CanvasLayer/Background/Menu/MarginContainer/HBoxContainer/VBoxContainer/Credits" to="CanvasLayer/Background/Menu" method="_on_credits_pressed"]
 [connection signal="pressed" from="CanvasLayer/Background/Menu/MarginContainer/HBoxContainer/VBoxContainer/Quit" to="CanvasLayer/Background/Menu" method="_on_quit_pressed"]
