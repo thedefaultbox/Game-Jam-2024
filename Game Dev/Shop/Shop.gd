@@ -1,5 +1,5 @@
 extends Node
-#Script of the Settings Sceen
+#Script of the Shop Sceen #D.Box
 
 var items = {"items":[
 	{"name":"Placeholder name", "price":"0", "description": "Placeholder description 1", "owned": null},
@@ -8,10 +8,7 @@ var items = {"items":[
 	{"name":"Placeholder name 3", "price":"300", "description": "Placeholder description 4", "owned": null}
 ]}
 
-# Will add code to check what items a player has when the player class is done
-func _on_back_to_menu_pressed():
-	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")
-
+# Will add code to check what items a player has when the player class is done #D.Box
 func _ready():
 	for item in items["items"]:
 		var ItemName = item["name"]
@@ -44,4 +41,5 @@ func _process(delta):
 
 
 #Button to return to Main Menu
-
+func _on_back_to_menu_pressed():
+	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")
