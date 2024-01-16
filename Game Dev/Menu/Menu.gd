@@ -14,6 +14,14 @@ func _on_settings_pressed():
 func _on_credits_pressed():
 	get_tree().change_scene_to_file("res://credits/credits.tscn")
 
+<<<<<<< HEAD
 #Button terminates window #GTB
+=======
+#Button opens the shop
+func _on_shop_pressed():
+	get_tree().change_scene_to_file("res://Shop/Shop.tscn")
+	
+#Button terminates window
+>>>>>>> c9b95eecb038a210ca80c5195f8a9dda854f7926
 func _on_quit_pressed():
 	get_tree().quit()
