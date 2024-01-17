@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5l1nmclysi5s"
+path="res://.godot/imported/relaxing-145038.wav-cc52c0a369663a44e88f220e0391e1fd.sample"
+
+[deps]
+
+source_file="res://Music/Background Music/relaxing-145038.wav"
+dest_files=["res://.godot/imported/relaxing-145038.wav-cc52c0a369663a44e88f220e0391e1fd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=3177216
+compress/mode=0
