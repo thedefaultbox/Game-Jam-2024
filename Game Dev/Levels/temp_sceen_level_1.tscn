@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfcuqyrqw6idb"]
+[gd_scene load_steps=13 format=3 uid="uid://cfcuqyrqw6idb"]
 
 [ext_resource type="Texture2D" uid="uid://c05knp4b42ufq" path="res://icon.svg" id="1_06hwt"]
 [ext_resource type="Script" path="res://Levels/player_movement.gd" id="1_aqr0a"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_ca8k2"]
 [ext_resource type="Shader" path="res://Levels/temp_sceen_level_1.gdshader" id="2_icrd4"]
+[ext_resource type="Texture2D" uid="uid://bmr8krfyl8eav" path="res://Images/background.png" id="2_nko7a"]
 [ext_resource type="Script" path="res://global/Label.gd" id="2_vxqrb"]
+[ext_resource type="Texture2D" uid="uid://7s8ylv0ygpp5" path="res://Images/Mushroom.jpg" id="5_o76fo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kly3c"]
 
@@ -17,8 +19,6 @@ shader_parameter/new1 = Color(0, 0.411765, 0, 1)
 shader_parameter/origin2 = Color(0.992157, 0.996078, 1, 1)
 shader_parameter/new2 = Color(0.396078, 0.223529, 0, 1)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l481j"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_2wwxf"]
 animations = [{
 "frames": [{
@@ -30,26 +30,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l481j"]
+radius = 64.0
+height = 130.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byu4s"]
-size = Vector2(20, 127)
+size = Vector2(138, 160)
 
 [node name="TEMP_SCEEN_LEVEL_1" type="Node2D"]
 script = ExtResource("1_ca8k2")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="World" type="Node2D" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-show_behind_parent = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_06hwt")
-
-[node name="World" type="Node2D" parent="CanvasLayer/TextureRect"]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TextureRect/World"]
+[node name="VBoxContainer" type="VBoxContainer" parent="World"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -61,52 +54,73 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/TextureRect/World/VBoxContainer"]
+[node name="StaticBody2D" type="StaticBody2D" parent="World/VBoxContainer"]
 position = Vector2(0, -40)
 scale = Vector2(100, 1)
 disable_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/TextureRect/World/VBoxContainer/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/VBoxContainer/StaticBody2D"]
+position = Vector2(0, 21)
 scale = Vector2(100, 2)
 shape = SubResource("RectangleShape2D_kly3c")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/TextureRect/World/VBoxContainer/StaticBody2D/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="World/VBoxContainer/StaticBody2D"]
 material = SubResource("ShaderMaterial_ccyl7")
+scale = Vector2(100, 2)
 texture = ExtResource("1_06hwt")
 centered = false
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="CanvasLayer/TextureRect/World"]
-up_direction = Vector2(0, 1)
+[node name="CharacterBody2D" type="CharacterBody2D" parent="World"]
 script = ExtResource("1_aqr0a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/TextureRect/World/CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_l481j")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/TextureRect/World/CharacterBody2D/CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/CharacterBody2D"]
+position = Vector2(66, 66)
 sprite_frames = SubResource("SpriteFrames_2wwxf")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CanvasLayer/TextureRect/World/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/CharacterBody2D"]
+position = Vector2(64, 63)
+shape = SubResource("CapsuleShape2D_l481j")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="World/CharacterBody2D/CollisionShape2D"]
+position = Vector2(-64, -63)
 remote_path = NodePath("../../Camera2D")
+use_global_coordinates = false
 
-[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/TextureRect/World"]
-position = Vector2(38.1783, 955.728)
+[node name="Camera2D" type="Camera2D" parent="World/CharacterBody2D"]
+position = Vector2(-160, 430)
+process_callback = 0
+limit_left = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 50.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/TextureRect/World/StaticBody2D"]
-position = Vector2(0.0357952, 0)
-scale = Vector2(0.15625, 1)
-texture = ExtResource("1_06hwt")
+[node name="StaticBody2D" type="StaticBody2D" parent="World"]
+position = Vector2(12.1783, 955.728)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/TextureRect/World/StaticBody2D"]
-position = Vector2(0, 0.158081)
+[node name="Sprite2D" type="Sprite2D" parent="World/StaticBody2D"]
+position = Vector2(57.8217, 4.27197)
+scale = Vector2(0.0276572, 0.032)
+texture = ExtResource("5_o76fo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(57.8217, 4.27197)
 shape = SubResource("RectangleShape2D_byu4s")
 
-[node name="debug menu" type="Label" parent="CanvasLayer/TextureRect/World"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(8000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(4000, -704)
+texture = ExtResource("2_nko7a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="debug menu" type="Label" parent="CanvasLayer"]
 offset_right = 162.0
 offset_bottom = 23.0
 text = "TEMP_GAME_SCREEN"
 script = ExtResource("2_vxqrb")
-
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer/TextureRect/World"]
-zoom = Vector2(1.5, 1.5)
-drag_left_margin = 0.0
-drag_bottom_margin = 0.0

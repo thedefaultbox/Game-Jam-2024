@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://0jav6bwv5gqj"]
+[gd_scene load_steps=6 format=3 uid="uid://0jav6bwv5gqj"]
 
+[ext_resource type="Shader" path="res://Levels/temp_sceen_level_1.gdshader" id="1_1njwh"]
 [ext_resource type="Script" path="res://Menu/Settings/Settings.gd" id="1_l5n7j"]
 [ext_resource type="Script" path="res://global/Label.gd" id="2_3y7x0"]
+[ext_resource type="Texture2D" uid="uid://c05knp4b42ufq" path="res://icon.svg" id="2_m0udw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rdxjm"]
+shader = ExtResource("1_1njwh")
+shader_parameter/origin = null
+shader_parameter/new = null
+shader_parameter/origin1 = null
+shader_parameter/new1 = null
+shader_parameter/origin2 = null
+shader_parameter/new2 = null
 
 [node name="Settings_Menu" type="Control"]
 layout_mode = 3
@@ -19,11 +30,13 @@ size_flags_vertical = 3
 follow_viewport_enabled = true
 
 [node name="background" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_rdxjm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_m0udw")
 
 [node name="Setings" type="Control" parent="CanvasLayer/background"]
 layout_mode = 1
