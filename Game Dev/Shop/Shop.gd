@@ -2,10 +2,10 @@ extends Node
 #Script of the Settings Sceen
 
 var items = {"items":[
-	{"name":"Placeholder name", "price":"0", "description": "Placeholder description 1", "owned": null},
-	{"name":"Placeholder name 2", "price":"1", "description": "Placeholder description 2", "owned": null},
-	{"name":"Placeholder name 2", "price":"2", "description": "Placeholder description 3", "owned": null},
-	{"name":"Placeholder name 3", "price":"300", "description": "Placeholder description 4", "owned": null}
+	{"name":"Placeholder name", "id":0, "price":0, "description": "Placeholder description 1", "owned": null},
+	{"name":"Placeholder name 2", "id":0, "price":1, "description": "Placeholder description 2", "owned": null},
+	{"name":"Placeholder name 2", "id":0, "price":2, "description": "Placeholder description 3", "owned": null},
+	{"name":"Placeholder name 3", "id":0, "price":300, "description": "Placeholder description 4", "owned": null}
 ]}
 
 # Will add code to check what items a player has when the player class is done
