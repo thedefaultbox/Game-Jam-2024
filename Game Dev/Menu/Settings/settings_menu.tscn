@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://0jav6bwv5gqj"]
+[gd_scene load_steps=6 format=3 uid="uid://0jav6bwv5gqj"]
 
+[ext_resource type="Shader" path="res://Levels/temp_sceen_level_1.gdshader" id="1_1njwh"]
 [ext_resource type="Script" path="res://Menu/Settings/Settings.gd" id="1_l5n7j"]
 [ext_resource type="Script" path="res://global/Label.gd" id="2_3y7x0"]
+[ext_resource type="Texture2D" uid="uid://c05knp4b42ufq" path="res://icon.svg" id="2_m0udw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rdxjm"]
+shader = ExtResource("1_1njwh")
+shader_parameter/origin = null
+shader_parameter/new = null
+shader_parameter/origin1 = null
+shader_parameter/new1 = null
+shader_parameter/origin2 = null
+shader_parameter/new2 = null
 
 [node name="Settings_Menu" type="Control"]
 layout_mode = 3
@@ -19,13 +30,15 @@ size_flags_vertical = 3
 follow_viewport_enabled = true
 
 [node name="background" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_rdxjm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_m0udw")
 
-[node name="Settings" type="Control" parent="CanvasLayer/background"]
+[node name="Setings" type="Control" parent="CanvasLayer/background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l5n7j")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/background/Settings"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/background/Setings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,31 +55,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/background/Settings/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/background/Setings/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/background/Settings/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/background/Setings/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Full Screen" type="CheckButton" parent="CanvasLayer/background/Settings/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Full Screen" type="CheckButton" parent="CanvasLayer/background/Setings/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Full Screen"
 
-[node name="Keyboard Controls" type="Button" parent="CanvasLayer/background/Settings/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Keyboard Controls" type="Button" parent="CanvasLayer/background/Setings/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Keyboard Controls
 "
 
-[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/background/Settings/MarginContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/background/Setings/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="Back to menu" type="Button" parent="CanvasLayer/background/Settings/MarginContainer/BoxContainer"]
+[node name="Back to menu" type="Button" parent="CanvasLayer/background/Setings/MarginContainer/BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Back"
@@ -79,6 +92,6 @@ offset_bottom = 23.0
 text = "Settings"
 script = ExtResource("2_3y7x0")
 
-[connection signal="toggled" from="CanvasLayer/background/Settings/MarginContainer/HBoxContainer/VBoxContainer/Full Screen" to="CanvasLayer/background/Settings" method="_on_full_screen_toggled"]
-[connection signal="pressed" from="CanvasLayer/background/Settings/MarginContainer/HBoxContainer/VBoxContainer/Keyboard Controls" to="CanvasLayer/background/Settings" method="_on_keyboard_controls_pressed"]
-[connection signal="pressed" from="CanvasLayer/background/Settings/MarginContainer/BoxContainer/Back to menu" to="CanvasLayer/background/Settings" method="_on_back_to_menu_pressed"]
+[connection signal="toggled" from="CanvasLayer/background/Setings/MarginContainer/HBoxContainer/VBoxContainer/Full Screen" to="CanvasLayer/background/Setings" method="_on_full_screen_toggled"]
+[connection signal="pressed" from="CanvasLayer/background/Setings/MarginContainer/HBoxContainer/VBoxContainer/Keyboard Controls" to="CanvasLayer/background/Setings" method="_on_keyboard_controls_pressed"]
+[connection signal="pressed" from="CanvasLayer/background/Setings/MarginContainer/BoxContainer/Back to menu" to="CanvasLayer/background/Setings" method="_on_back_to_menu_pressed"]

@@ -1,5 +1,7 @@
 extends Node
 
+
+#Debug toggle variable #GTB
 var toggle_debug = true
 
 # Called when the node enters the scene tree for the first time.

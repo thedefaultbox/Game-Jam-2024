@@ -29,9 +29,10 @@ texture = ExtResource("1_x0egu")
 
 [node name="debug menu" type="Label" parent="CanvasLayer/TextureRect"]
 visible = false
+layout_mode = 0
 offset_right = 55.0
 offset_bottom = 23.0
-text = "Credits"
+text = "Credits (TEMPORARY NEEDS CHANGE IN FUTURE)"
 script = ExtResource("1_5d18u")
 
 [node name="Control" type="Control" parent="CanvasLayer/TextureRect"]
